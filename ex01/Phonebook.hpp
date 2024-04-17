@@ -14,15 +14,19 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
+# include <stdlib.h>
 
 class Phonebook
 {
     private:
         Contact _contacts[MAX_CONTACTS];
         int _contact_count;
-        void add_contact(Contact contact);
-        void display_contacts();
-        void display_contact(int index);
+        void _get_fields(std::string fields, std::string *value);
+        void _get_index();
+        void _add_contact(Contact contact);
+        void _display_contacts();
+        std::string _get_short_contact(std::string value);
+        void _display_contact(int index);
     public:
         Phonebook();
         void open();

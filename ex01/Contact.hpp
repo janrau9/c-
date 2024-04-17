@@ -17,7 +17,7 @@
 # include <string>
 # include <iomanip>
 
-# define MAX_CONTACTS 8
+# define MAX_CONTACTS 2
 
 class Contact
 {
