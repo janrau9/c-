@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 15:37:07 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/20 19:27:13 by janraub          ###   ########.fr       */
+/*   Created: 2024/04/20 15:04:46 by janraub           #+#    #+#             */
+/*   Updated: 2024/04/20 19:17:27 by janraub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+#include <iostream>
 
-int main(void)
+class Zombie
 {
-    Zombie patient("zero");
-    patient.announce();
-    randomChump("one");
-    Zombie *two = newZombie("two");
-    two->announce();
-    delete two;
-    return (0);
-}
+    private:
+        std::string name;
+    public:
+        Zombie( void );
+        Zombie( std::string name );
+        ~Zombie( void );
+        void announce( void );
+        void set_name(std::string name);
+};
+
+#endif
