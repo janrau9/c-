@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:56 by jberay            #+#    #+#             */
-/*   Updated: 2024/04/22 15:55:30 by jberay           ###   ########.fr       */
+/*   Updated: 2024/04/22 17:32:30 by janraub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-Sed::Sed( std::string file, std::string s1, std::string s2 ) : _s1(s1), _s2(s2)
+Sed::Sed( const std::string file, std::string s1, std::string s2 ) : _s1(s1), _s2(s2)
 {
     this->_infile.open(file, std::fstream::in);
     if (this->_infile.fail())
     {
          std::cout << "Failed to open file" << std::endl;
     }
-    this->_outfile.open("filename.replace", std::ofstream::in | std::ofstream::out | std::ofstream::app);
+    this->_outfile.open("filename.replace", std::fstream::out | std::fstream::trunc);
+    if (this->_outfile.fail())
     {
          std::cout << "Failed to create file" << std::endl;
     }
@@ -65,7 +66,7 @@ std::string* Sed::replace( void )
             line = line.substr(pos + s1.length(), line.length() - pos - s1.length());
             pos = line.find(s1, 0);
         }
-        this->_outfile << line;
+        this->_outfile << line << std::endl;
     }
     return (NULL);
 }

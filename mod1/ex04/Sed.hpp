@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:45:23 by jberay            #+#    #+#             */
-/*   Updated: 2024/04/22 15:48:48 by jberay           ###   ########.fr       */
+/*   Updated: 2024/04/22 17:06:53 by janraub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Sed
         std::string const _s1;
         std::string const _s2;
         std::fstream _infile;
-        std::ofstream _outfile;
+        std::fstream _outfile;
     public:
-        Sed( std::string file, std::string s1, std::string s2 );
+        Sed( const std::string file, std::string s1, std::string s2 );
         ~Sed( void );
         std::string* replace( void ); 
         // std::fstream getInfile();

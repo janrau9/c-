@@ -6,18 +6,18 @@
 #    By: janraub <janraub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/04/22 17:09:00 by janraub          ###   ########.fr        #
+#    Updated: 2024/04/22 18:53:47 by janraub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	sed
+NAME			=	harlFilter
 
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
 SRCS 			=	main.cpp \
-					Sed.cpp
+					Harl.cpp
 						
 OBJS			=	$(SRCS:%.cpp=%.o)
 
