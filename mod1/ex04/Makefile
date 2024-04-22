@@ -6,18 +6,18 @@
 #    By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/04/22 09:18:58 by jberay           ###   ########.fr        #
+#    Updated: 2024/04/22 13:33:34 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	account
+NAME			=	sed
 
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 RM				=	rm -rf
 
-SRCS 			=	Account.cpp \
-					tests.cpp
+SRCS 			=	main.cpp \
+					Sed.cpp
 						
 OBJS			=	$(SRCS:%.cpp=%.o)
 

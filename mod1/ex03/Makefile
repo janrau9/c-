@@ -6,18 +6,20 @@
 #    By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/04/22 09:18:58 by jberay           ###   ########.fr        #
+#    Updated: 2024/04/22 10:45:11 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	account
+NAME			=	zombie
 
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 RM				=	rm -rf
 
-SRCS 			=	Account.cpp \
-					tests.cpp
+SRCS 			=	main.cpp \
+					HumanA.cpp \
+					HumanB.cpp \
+					Weapon.cpp
 						
 OBJS			=	$(SRCS:%.cpp=%.o)
 
