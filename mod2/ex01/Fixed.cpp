@@ -6,7 +6,7 @@
 /*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:21:03 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/22 20:44:52 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/23 17:06:00 by janraub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,26 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed( int whole ) : _whole(whole), _frac(8)
+Fixed::Fixed( const int whole ) :  _frac(8)
 {
+    std::cout << "Int constructor called" << std::endl;
+    this->_whole = whole * (1 << this->_frac);
+}
+
+Fixed::Fixed( const float whole ) : _frac(8)
+{
+    std::cout << "Float constructor called" << std::endl;
+    this->_whole = roundf(whole * (1 << this->_frac));
+}
+
+float Fixed::toFloat( void ) const
+{
+    return (float)(getRawBits() / ( 1 >> this->_frac));
+}
+
+int Fixed::toInt( void ) const
+{
+    return (getRawBits() >> this->_frac);
 }
 
 Fixed::Fixed( const Fixed& other ) : _frac(8)
@@ -40,14 +58,28 @@ Fixed& Fixed::operator=(const Fixed& other)
     return (*this); 
 }
 
+std::ostream& operator<<(std::ostream& os, const Fixed& fp)
+{
+    // Extract integer and fractional parts
+    int integerPart = fp.getRawBits() >> 8;  // Shift right to get integer part
+    int fractionalPart = fp.getRawBits() & 0xFF;  // Mask to get fractional part
+
+    // Calculate the floating-point representation
+    float value = integerPart + static_cast<float>(fractionalPart) / 256.0f;
+
+    // Insert into the output stream
+    os << value;
+
+    return os;
+}
+
+
 int Fixed::getRawBits() const
 {
-    std::cout << "getRawBits member function called" << std::endl;
     return (this->_whole);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits member function called" << std::endl;
     this->_whole = raw;
 }
