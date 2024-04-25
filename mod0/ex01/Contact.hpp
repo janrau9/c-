@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 10:58:00 by jberay            #+#    #+#             */
-/*   Updated: 2024/04/17 11:05:55 by jberay           ###   ########.fr       */
+/*   Updated: 2024/04/25 09:42:16 by janraub          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string>
 # include <iomanip>
 
-# define MAX_CONTACTS 2
+# define MAX_CONTACTS 8
 
 class Contact
 {
