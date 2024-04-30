@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 17:49:17 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/22 18:57:30 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/30 09:29:36 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,27 +45,28 @@ void Harl:: error( void )
 
 void Harl::complain( const std::string level )
 {
-
-    if (level == "DEBUG")
-    {
-        debug();
-        info();
-        warning();
-        error();
-    }
-    else if (level == "INFO")
-    {
-        info();
-        warning();
-        error();
-    }
-    else if (level == "WARNING")
-    {
-        warning();
-        error();
-    }
-    else if (level == "ERROR")
-        error();
-    else
-        std::cout << "Unknown Complain" << std::endl;        
+   void (Harl::*func[])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
+	std::string levels[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+	int i = 0;
+	while (i < 4)
+	{
+		if (level == levels[i])
+			break;
+		i++;
+	}
+	switch (i)
+	{
+		case 0:
+			(this->*func[0])();
+		case 1:
+			(this->*func[1])();
+		case 2:
+			(this->*func[2])();
+		case 3:
+			(this->*func[3])();
+            break;
+		default:
+			std::cout << "Not valid!" << std::endl;
+			break;
+	}
 }

@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Node.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/22 18:08:43 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/30 09:27:02 by jberay           ###   ########.fr       */
+/*   Created: 2024/04/25 14:49:14 by janraub           #+#    #+#             */
+/*   Updated: 2024/04/26 08:17:00 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef NODE_HPP
+# define NODE_HPP
 
-int main(void)
+# include <iostream>
+# include <string>
+
+class Node
 {
-    Harl harl;
-    
-    harl.complain("DEBUG");
-    harl.complain("INFO");
-    harl.complain("WARNING");
-    harl.complain("ERROR");
-    harl.complain("XXX");
-    return (0);
-}
+    public:
+        void *content;
+        Node *next;
+        Node();
+        Node(void* content);
+        ~Node();
+        Node(const Node& other);
+        Node& operator=(const Node& other);
+};
+
+#endif

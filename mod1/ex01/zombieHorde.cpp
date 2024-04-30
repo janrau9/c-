@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 19:04:27 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/20 19:20:36 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 11:11:14 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <new>
 
 Zombie* zombieHorde( int N, std::string name )
 {

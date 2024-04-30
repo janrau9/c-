@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:54:51 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/25 18:50:17 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 08:14:29 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIASOUCE_HPP
+#ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
 # include "AMateria.hpp"

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:07:56 by jberay            #+#    #+#             */
-/*   Updated: 2024/04/22 17:32:30 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 15:09:57 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ Sed::Sed( const std::string file, std::string s1, std::string s2 ) : _s1(s1), _s
     if (this->_infile.fail())
     {
          std::cout << "Failed to open file" << std::endl;
+         return ;
     }
-    this->_outfile.open("filename.replace", std::fstream::out | std::fstream::trunc);
+    std::string out = file.substr(0, file.find_first_of("."));
+    this->_outfile.open(out + ".replace", std::fstream::out | std::fstream::trunc);
     if (this->_outfile.fail())
     {
          std::cout << "Failed to create file" << std::endl;
@@ -43,11 +45,6 @@ std::string Sed::getS2() const
 {
     return(this->_s2);
 }
-
-// std::fstream Sed::getInfile()
-// {
-//     return(this->_infile);
-// }
 
 std::string* Sed::replace( void )
 {

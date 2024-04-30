@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 17:41:51 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/22 18:11:20 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 15:35:17 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Harl
         void warning ( void );
         void error ( void );
     public:
+        Harl();
+        ~Harl();
         void complain( std::string level);
 };
 

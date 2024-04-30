@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:38:10 by jberay            #+#    #+#             */
-/*   Updated: 2024/04/22 11:38:47 by jberay           ###   ########.fr       */
+/*   Updated: 2024/04/26 15:01:10 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ HumanB::~HumanB( void )
 
 void HumanB::attack( void )
 {
-    std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;
+    if (!_weapon)
+        std::cout << this->_name << " attacks with their " << "nothing" << std::endl;
+    else
+        std::cout << this->_name << " attacks with their " << this->_weapon->getType() << std::endl;        
 }
 
 void HumanB::setWeapon( Weapon& weapon )

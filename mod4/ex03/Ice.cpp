@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 13:49:21 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/25 18:58:09 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 11:51:33 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ void Ice::use(ICharacter& target)
 
 Ice* Ice::clone() const
 {
-    return (new Ice(this->type));
+    return (new Ice());
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:21:03 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/23 17:06:00 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/30 09:52:41 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _whole(0), _frac(8)
+Fixed::Fixed() : _whole(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
@@ -22,13 +22,13 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed( const int whole ) :  _frac(8)
+Fixed::Fixed( const int whole )
 {
     std::cout << "Int constructor called" << std::endl;
     this->_whole = whole * (1 << this->_frac);
 }
 
-Fixed::Fixed( const float whole ) : _frac(8)
+Fixed::Fixed( const float whole )
 {
     std::cout << "Float constructor called" << std::endl;
     this->_whole = roundf(whole * (1 << this->_frac));
@@ -44,7 +44,7 @@ int Fixed::toInt( void ) const
     return (getRawBits() >> this->_frac);
 }
 
-Fixed::Fixed( const Fixed& other ) : _frac(8)
+Fixed::Fixed( const Fixed& other )
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = other;

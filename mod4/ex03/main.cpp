@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:14:07 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/25 19:25:26 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 14:00:15 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include "MateriaSource.hpp"
 #include "IMateriaSource.hpp"
 #include "ICharacter.hpp"
-
-
 
 
 int main()
@@ -105,3 +103,4 @@ int main()
 
 	return 0;
 }
+	

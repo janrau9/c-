@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:44:06 by jberay            #+#    #+#             */
-/*   Updated: 2024/04/22 17:37:37 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 15:05:13 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
-    std::fstream fs;
-    fs.open ("test.txt", std::fstream::in | std::fstream::out | std::fstream::trunc);
-    fs << "more lorem ipsum lorem hello" << std::endl;
-    fs << "more lorem ipsum lorem hello" << std::endl;
-    fs.close();
-    Sed sed("test.txt", " ", "...");
-    sed.replace();
+    if (argc == 4)
+    {
+        std::fstream fs;
+        fs.open (argv[1], std::fstream::in);
+        fs.close();
+        Sed sed(argv[1], argv[2], argv[3]);
+        sed.replace();
+    }
 }

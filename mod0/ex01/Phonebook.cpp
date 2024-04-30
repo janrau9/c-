@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:09:09 by jberay            #+#    #+#             */
-/*   Updated: 2024/04/17 15:22:20 by jberay           ###   ########.fr       */
+/*   Updated: 2024/04/26 11:06:51 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	Phonebook::_get_index()
 	{
 		std::cout << "Enter Index: ";
 		std::getline(std::cin, index);
+		if (std::cin.eof() == true)
+			break;
 		if (!index.empty() && index.find_first_not_of("012345678") != std::string::npos)
 		{
 			std::cout << "Enter valid index!" << std::endl;
@@ -109,6 +111,8 @@ void	Phonebook::_get_fields(std::string field, std::string *value)
 	{
 		std::cout << "Enter " << field << ": ";
 		std::getline(std::cin, *value);
+		if (std::cin.eof() == true)
+			break;
 		if (!value->empty())
 		{
 			if (field == "Phone number" && value->find_first_not_of("0123456789") != std::string::npos)
@@ -129,6 +133,8 @@ void Phonebook::open()
 	{
 		std::cout << "Enter a command: ";
 		std::getline(std::cin, command);
+		if (std::cin.eof() == true)
+			break;
 		if (command == "EXIT")
 			break;
 		else if (command == "ADD")

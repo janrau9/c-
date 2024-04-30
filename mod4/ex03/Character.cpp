@@ -3,60 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:06:11 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/25 19:31:23 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 14:59:10 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() : _name(""), _floor()
+Character::Character() : _name(""), _floor(new LinkedList())
 {
     //std::cout <<  this->_name << " default constructor called" << std::endl;
-    _inventory = new AMateria*[4];
     for (size_t i = 0; i < 4; ++i)
-        _inventory[i] = NULL;
+        _inventory[i] = nullptr;
 }
 
-Character::Character(const std::string& name) : _name(name), _floor()
+Character::Character(const std::string& name) : _name(name), _floor(new LinkedList())
 {
     //std::cout <<  this->_name << " constructor called" << std::endl;
-    _inventory = new AMateria*[4];
     for (size_t i = 0; i < 4; ++i)
-        _inventory[i] = NULL;
+        _inventory[i] = nullptr;
 }
 
 Character::~Character()
 {
     //std::cout <<  this->_name << " virtual deconstructor called" << std::endl;
     for (size_t i = 0; i < 4; ++i)
+    {
         delete _inventory[i];
-    delete [] _inventory;     
+        _inventory[i] = nullptr;
+    }
 }
 
-Character::Character(const Character& other)
+Character::Character(const Character& other) : _name(other._name),  _floor(new LinkedList(*other._floor))
 {
-    _name = other._name;
-    if (_floor.head != NULL || other._floor.head != NULL)
-    {
-        Node* src = other._floor.head->next;
-        Node* dest = _floor.head;
-        while (src)
-        {
-            dest->next = new Node(*src);
-            dest = dest->next;
-            src = src->next;
-        }  
-    }
-    delete [] _inventory;
-    _inventory = new AMateria*[4];
+    // std::cout <<  this->_name << " Copy constructor called " << std::endl;
     for (size_t i = 0; i < 4; ++i)
-        _inventory[i] = other._inventory[i];
-
-    //std::cout <<  this->_name << " Copy constructor called " << std::endl;
-    *this = other;
+    {
+        if (other._inventory[i])
+		    _inventory[i] = other._inventory[i]->clone();
+        else
+            _inventory[i] = nullptr;
+    }
 }
 
 Character& Character::operator=(const Character& other)
@@ -64,26 +53,20 @@ Character& Character::operator=(const Character& other)
     //std::cout <<  this->_name << " assignation called" << std::endl;
     if (this != &other)
     {
-        _name = other._name;
-        if (_floor.head != NULL || other._floor.head != NULL)
-        {
-            Node* temp = _floor.head;
-            Node* src = other._floor.head->next;
-            Node* dest = _floor.head;
-            while (temp->next)
-            {
-                dest->next = new Node(*src);
-                dest = dest->next;
-                src = src->next;
-            }  
-        }
-        delete [] _inventory;
-        _inventory = new AMateria*[4];
         for (size_t i = 0; i < 4; ++i)
-            _inventory[i] = other._inventory[i];
+        {
+            if (_inventory[i])
+            {
+                delete _inventory[i];
+                _inventory[i] = nullptr;
+            }
+        }
+        for (size_t i = 0; i < 4; ++i)
+		    _inventory[i] = other._inventory[i]->clone();
     }
     return (*this);
 }
+
 
 std::string const & Character::getName() const
 {
@@ -106,7 +89,7 @@ void Character::unequip(int idx)
 {
     if (idx > 4 || _inventory[idx] == NULL)
         return ;
-    _floor.append(_inventory[idx]);
+    _floor->append(_inventory[idx]);
 }
 
 void Character::use(int idx, ICharacter& target)

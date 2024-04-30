@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: janraub <janraub@student.42.fr>            +#+  +:+       +#+         #
+#    By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/04/22 18:11:00 by janraub          ###   ########.fr        #
+#    Updated: 2024/04/26 16:44:57 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	harl
 
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -std=c++11
 RM				=	rm -rf
 
 SRCS 			=	main.cpp \

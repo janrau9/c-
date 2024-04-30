@@ -6,19 +6,19 @@
 #    By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/04/26 08:12:22 by jberay           ###   ########.fr        #
+#    Updated: 2024/04/26 08:22:51 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	phonebook
+NAME			=	animal
 
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98
+CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
-SRCS 			=	Contact.cpp \
-					Phonebook.cpp \
-					main.cpp
+SRCS 			=	main.cpp \
+					LinkedList.cpp \
+					Node.cpp
 						
 OBJS			=	$(SRCS:%.cpp=%.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:28:52 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/25 12:11:44 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/30 10:46:58 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 int main()
 {
 
-    /* std::cout << std::endl;
-    std::cout << "#Default##" << std::endl;
-    const Animal* def = new Animal();
-    delete def; */
+    // std::cout << std::endl;
+    // std::cout << "#Default##" << std::endl;
+    // const Animal* def = new Animal();
+    // delete def;
     
     const Animal* a[10];
 

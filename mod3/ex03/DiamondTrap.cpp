@@ -3,19 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 13:01:06 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/24 20:09:12 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/30 10:35:37 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(std::string name)
-    : ClapTrap(name + "_clap_name", FragTrap::getHP(), ScavTrap::getEP(), FragTrap::getAD())
+DiamondTrap::DiamondTrap()
+    : ClapTrap(), ScavTrap(), FragTrap()
 {
+    setHP(FragTrap::getHP());
+    setEP(ScavTrap::getEP());
+    setAD(FragTrap::getAD());
+}
+
+DiamondTrap::DiamondTrap(std::string name)
+{
+    
     this->name = name;
+    ClapTrap::setName(name + "_clap_name");
+    setHP(FragTrap::getHP());
+    setEP(ScavTrap::getEP());
+    setAD(FragTrap::getAD());
     std::cout << "DiamondTrap constructor " << this->name << " called " << std::endl;
 }
 
@@ -25,7 +37,7 @@ DiamondTrap::~DiamondTrap()
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other)
-    : ClapTrap(other.getName()), ScavTrap(name), FragTrap(name)
+    : ClapTrap(other.getName()), ScavTrap(other.getName()), FragTrap(other.getName())
 {
     this->name = other.name;
     this->setName(other.getName());

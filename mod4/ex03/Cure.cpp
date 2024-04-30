@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 13:37:12 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/25 18:59:27 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/26 11:51:24 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ void Cure::use(ICharacter& target)
 
 Cure* Cure::clone() const
 {
-    return (new Cure(this->type));
+    return (new Cure());
 }

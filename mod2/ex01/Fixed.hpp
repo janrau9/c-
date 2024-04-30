@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:09:21 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/23 16:56:17 by janraub          ###   ########.fr       */
+/*   Updated: 2024/04/30 09:52:31 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Fixed
 {
     private:
         int _whole;
-        int const _frac;
+        static int const _frac = 8;
     public:
         Fixed();
         ~Fixed();

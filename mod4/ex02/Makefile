@@ -6,18 +6,23 @@
 #    By: janraub <janraub@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/04/25 12:44:21 by janraub          ###   ########.fr        #
+#    Updated: 2024/04/25 10:16:10 by janraub          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	materia
+NAME			=	animal
 
 CC				=	c++
 CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
 RM				=	rm -rf
 
 SRCS 			=	main.cpp \
-					AMateria.cpp
+					Animal.cpp \
+					Dog.cpp \
+					Cat.cpp \
+					WrongAnimal.cpp \
+					WrongCat.cpp \
+					Brain.cpp
 						
 OBJS			=	$(SRCS:%.cpp=%.o)
 

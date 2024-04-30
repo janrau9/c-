@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 12:17:21 by jberay            #+#    #+#             */
-/*   Updated: 2024/04/11 09:04:18 by jberay           ###   ########.fr       */
+/*   Updated: 2024/04/26 11:04:33 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int main(int argc, char **argv)
         while (argv[i][++j])
             std::cout << (char)toupper(argv[i][j]);
         i++;
-        if (i < argc)
-            std::cout << " ";
     }
     std::cout << std::endl;
     return (0);
