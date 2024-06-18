@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:19:31 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/23 18:23:13 by janraub          ###   ########.fr       */
+/*   Updated: 2024/06/18 10:31:56 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ int main( void )
     std::cout << c << std::endl;
     std::cout << d << std::endl;
     std::cout << e << std::endl;    
+    {
+        std::cout << "##############" << std::endl;
+        Fixed a(10);
+        Fixed b(2);
+
+        Fixed c = a / b;
+        std::cout << c << std::endl;
+    }
     
     return 0;
 }
