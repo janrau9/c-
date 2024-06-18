@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 19:21:03 by janraub           #+#    #+#             */
-/*   Updated: 2024/06/18 10:40:50 by jberay           ###   ########.fr       */
+/*   Updated: 2024/06/18 10:57:32 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ Fixed::Fixed( const Fixed& other )
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = other;
-}d
+}
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
