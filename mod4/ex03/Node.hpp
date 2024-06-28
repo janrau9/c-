@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Node.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:49:14 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/25 18:28:19 by janraub          ###   ########.fr       */
+/*   Updated: 2024/06/28 09:24:31 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
+
+class AMateria;
 
 class Node
 {
     public:
-        void *content;
+        AMateria *content;
         Node *next;
         Node();
-        Node(void* content);
+        Node(AMateria* content);
         ~Node();
         Node(const Node& other);
         Node& operator=(const Node& other);

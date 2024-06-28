@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:14:07 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/26 14:00:15 by jberay           ###   ########.fr       */
+/*   Updated: 2024/06/28 14:58:00 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,15 @@ int main()
 	me->use(0, *bob);
 	me->use(1, *bob);
 
-	std::cout << std::endl << "==Unequipping one materia, sets it in trash to be copied/assigned==" << std::endl;
+	std::cout << std::endl << "==Unequipping one materia, put down to floor to be copied/assigned==" << std::endl;
 	me->unequip(2);
 	me->unequip(1);
 	me->unequip(5); //nothing happens, 5 doesn't exist
 
 	//Unequipped 2x Cure
 	//Equppied Ice on Slot 0
+	//did you find out which one is not freed? 
+	//maybe not, 
 
 	std::cout << std::endl << "==Copying character==" << std::endl;
 	Character* copy = new Character(*me);
@@ -72,7 +74,6 @@ int main()
 	std::cout << std::endl << "==Assign character==" << std::endl;
 	*meass = *me;
 
-	
 	std::cout << std::endl << "==Copy actions==" << std::endl;
 	copy->use(0, *bob);
 	copy->equip(src->createMateria("ice"));

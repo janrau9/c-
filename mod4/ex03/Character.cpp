@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:06:11 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/26 14:59:10 by jberay           ###   ########.fr       */
+/*   Updated: 2024/06/28 14:04:59 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() : _name(""), _floor(new LinkedList())
+Character::Character() : _name(""), _floor(LinkedList())
 {
     //std::cout <<  this->_name << " default constructor called" << std::endl;
     for (size_t i = 0; i < 4; ++i)
         _inventory[i] = nullptr;
 }
 
-Character::Character(const std::string& name) : _name(name), _floor(new LinkedList())
+Character::Character(const std::string& name) : _name(name), _floor(LinkedList())
 {
     //std::cout <<  this->_name << " constructor called" << std::endl;
     for (size_t i = 0; i < 4; ++i)
@@ -28,15 +28,18 @@ Character::Character(const std::string& name) : _name(name), _floor(new LinkedLi
 
 Character::~Character()
 {
-    //std::cout <<  this->_name << " virtual deconstructor called" << std::endl;
+    std::cout <<  this->_name << " virtual deconstructor called" << std::endl;
     for (size_t i = 0; i < 4; ++i)
     {
-        delete _inventory[i];
-        _inventory[i] = nullptr;
+        if (_inventory[i])
+        {
+            delete _inventory[i];
+            _inventory[i] = nullptr;
+        }
     }
 }
 
-Character::Character(const Character& other) : _name(other._name),  _floor(new LinkedList(*other._floor))
+Character::Character(const Character& other) : _name(other._name),  _floor(LinkedList(other._floor))
 {
     // std::cout <<  this->_name << " Copy constructor called " << std::endl;
     for (size_t i = 0; i < 4; ++i)
@@ -62,7 +65,10 @@ Character& Character::operator=(const Character& other)
             }
         }
         for (size_t i = 0; i < 4; ++i)
-		    _inventory[i] = other._inventory[i]->clone();
+        {
+            if (other._inventory[i])
+		        _inventory[i] = other._inventory[i]->clone();
+        }
     }
     return (*this);
 }
@@ -75,26 +81,30 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
+    if (!m)
+        return;
     for (size_t i = 0; i < 4; ++i)
     {
         if (_inventory[i] == NULL)
         {
             _inventory[i] = m;
-            break ;
+            return;
         }
     }
+    delete m;
 }
 
 void Character::unequip(int idx)
 {
-    if (idx > 4 || _inventory[idx] == NULL)
+    if (idx < 0 || idx > 4 || _inventory[idx] == NULL)
         return ;
-    _floor->append(_inventory[idx]);
+    _floor.append(_inventory[idx]);
+    _inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-    if (idx > 4 || _inventory[idx] == NULL)
+    if (idx < 0 || idx > 4 || _inventory[idx] == NULL)
         return ;
     _inventory[idx]->use(target);
 }

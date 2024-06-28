@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 13:49:21 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/26 11:51:33 by jberay           ###   ########.fr       */
+/*   Updated: 2024/06/28 11:23:14 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
 Ice::Ice()
-    : AMateria("Ice")
+    : AMateria("ice")
 {
    // std::cout <<  this->type << " default constructor called" << std::endl;
 }

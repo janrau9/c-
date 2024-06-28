@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   LinkedList.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 15:05:25 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/26 13:56:17 by jberay           ###   ########.fr       */
+/*   Updated: 2024/06/28 14:56:33 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,30 @@ LinkedList::LinkedList()
 
 LinkedList::~LinkedList()
 {
-   // std::cout <<  "LinkedList deconstructor called" << std::endl;
-    Node* temp = head;
-    while (temp)
+    std::cout <<  "LinkedList deconstructor called" << std::endl;
+    Node* temp;
+    Node* ptr = head;
+    while (ptr)
     {
-        Node* next = temp->next;
+        temp = ptr;
+        ptr = ptr->next;
         delete temp;
-        temp = next;
     }
     head = nullptr;
 }
 
-LinkedList::LinkedList(const LinkedList& other)
-    : head(other.head)
+LinkedList::LinkedList(const LinkedList& other) : head(NULL)
 {
+    if (other.head)
+    {
+        Node* temp = other.head;
+        while (temp)
+        {
+            this->append(other.head->content->clone());
+            temp = temp->next;
+        }
+    }
     // std::cout << "Copy constructor called " << std::endl;
-    *this = other;
 }
 
 LinkedList& LinkedList::operator=(const LinkedList& other)
@@ -43,12 +51,26 @@ LinkedList& LinkedList::operator=(const LinkedList& other)
     // std::cout <<  "assignation called" << std::endl;
     if (this != &other)
     {
-        this->head = other.head;
+        Node* temp;
+        Node* ptr = head;
+        while (ptr)
+        {
+            temp = ptr;
+            ptr = temp->next;
+            delete temp;
+        }
+        head = nullptr;
+        temp = other.head;
+        while (temp)
+        {
+            this->append(other.head->content->clone());
+            temp = temp->next;
+        }
     }
     return (*this);
 }
 
-void LinkedList::append(void *content)
+void LinkedList::append(AMateria *content)
 {
     Node* newNode = new Node(content);
     if (!head)
@@ -63,8 +85,3 @@ void LinkedList::append(void *content)
     }
     temp->next = newNode;
 }
-
-/* Node* LinkedList::getHead() const
-{
-    return (head);
-} */

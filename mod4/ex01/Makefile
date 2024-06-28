@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: janraub <janraub@student.42.fr>            +#+  +:+       +#+         #
+#    By: jberay <jberay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/04/25 10:16:10 by janraub          ###   ########.fr        #
+#    Updated: 2024/06/27 11:45:46 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	animal
 
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
 SRCS 			=	main.cpp \

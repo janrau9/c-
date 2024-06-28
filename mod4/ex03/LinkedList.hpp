@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   LinkedList.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 15:02:50 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/26 13:28:20 by jberay           ###   ########.fr       */
+/*   Updated: 2024/06/28 09:34:18 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LINKEDLIST_HPP
 # define LINKEDLIST_HPP
 
+# include "AMateria.hpp"
 # include "Node.hpp"
+
+class Node;
+class AMateria;
 
 class LinkedList
 {
@@ -24,8 +28,7 @@ class LinkedList
 				~LinkedList();
 				LinkedList(const LinkedList& other);
 				LinkedList& operator=(const LinkedList& other);
-				void append(void *content);
-			//  Node *getHead() const;
+				void append(AMateria *content);
 };
 
 #endif

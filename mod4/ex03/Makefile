@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: janraub <janraub@student.42.fr>            +#+  +:+       +#+         #
+#    By: jberay <jberay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/04/25 18:49:07 by janraub          ###   ########.fr        #
+#    Updated: 2024/06/27 12:12:21 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	materia
 
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS			=	-Wall -Wextra -Werror -g
 RM				=	rm -rf
 
 SRCS 			=	main.cpp \

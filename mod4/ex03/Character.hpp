@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 12:50:16 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/26 13:58:01 by jberay           ###   ########.fr       */
+/*   Updated: 2024/06/28 12:17:26 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Character : public ICharacter
     private:
         AMateria* _inventory[4];
         std::string _name;
-        LinkedList* _floor;
+        LinkedList _floor;
     public:
         Character();
         Character(const std::string& name);

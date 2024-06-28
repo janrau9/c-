@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 18:01:42 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/25 19:23:50 by janraub          ###   ########.fr       */
+/*   Updated: 2024/06/28 12:01:04 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,25 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 
 void MateriaSource::learnMateria(AMateria* m)
 {
+    if (m == NULL)
+        return;
     for (size_t i = 0; i < 4; ++i)
     {
         if (_inventory[i] == NULL)
         {
             _inventory[i] = m;
-            break ;
+            return;
         }
     }
-    
+    delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    
-    if (type == "cure")
+    for (size_t i = 0; i < 4; ++i)
     {
-        Cure* c = new Cure();
-        return (c);
+        if (_inventory[i] && _inventory[i]->getType() == type)
+            return (_inventory[i]->clone());
     }
-    else if (type == "ice")
-    {
-        Ice* i = new Ice();
-        return (i);
-    }
-    else
-        return (0);
-
+    return (NULL);
 }
