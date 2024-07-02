@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:05:25 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/02 11:55:31 by jberay           ###   ########.fr       */
+/*   Updated: 2024/07/02 13:28:13 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class Bureaucrat
         int getGrade() const;
         void decrementGrade();
         void incrementGrade();
+        
         void signForm(const Form &F);
         
 };

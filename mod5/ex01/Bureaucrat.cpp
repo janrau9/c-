@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:50:31 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/02 11:18:42 by jberay           ###   ########.fr       */
+/*   Updated: 2024/07/02 13:33:15 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,14 @@ void Bureaucrat::incrementGrade()
     if (grade == 1)
         throw Bureaucrat::GradeTooHighException();
     grade--;
+}
+
+void Bureaucrat::signForm(const Form &F)
+{
+    if (F.isSigned)
+        std::cout << name << " signed " << F.name << std::endl;
+    else
+        std::cout << name << " couldn't sign" << F.name << " because " << e.what() << std::endl; 
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& B)

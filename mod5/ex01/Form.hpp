@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 11:37:31 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/02 11:56:45 by jberay           ###   ########.fr       */
+/*   Updated: 2024/07/02 13:16:12 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Form
             public:
                 virtual const char* what() const throw();
         };
-        class GradeTooHighException : public std::exception
+        class GradeTooLowException : public std::exception
         {
             public:
                 virtual const char* what() const throw()
@@ -46,6 +46,7 @@ class Form
 
         std::string getName() const;
         int getGrade() const;
+        bool getIsSigned() const;
         int getGradeRequiredToSign() const;
         int getGradeRequiredToExecute() const;
 
