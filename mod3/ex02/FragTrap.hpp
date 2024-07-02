@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: janraub <janraub@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 12:10:49 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/24 20:08:21 by janraub          ###   ########.fr       */
+/*   Updated: 2024/07/01 11:19:36 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FRAGTRAP_HPP
 
 # include "ClapTrap.hpp"
-# include "ScavTrap.hpp"
 
 class FragTrap : virtual public ClapTrap
 {

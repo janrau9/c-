@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 10:28:52 by janraub           #+#    #+#             */
-/*   Updated: 2024/04/30 10:36:25 by jberay           ###   ########.fr       */
+/*   Updated: 2024/07/01 10:27:10 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int main(void)
     a.takeDamage(10);
     std::cout << a.getHP() << std::endl;
     for (int i = 0; i < 10; i++)
+    {
         a.beRepaired(10);
+        std::cout << a.getEP() << std::endl;
+    }
     std::cout << a.getHP() << std::endl;
     a.highFivesGuys();
     a.guardGate();
