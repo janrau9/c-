@@ -6,12 +6,12 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:55:55 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 09:26:40 by jberay           ###   ########.fr       */
+/*   Updated: 2024/07/04 12:08:15 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main()
 {	
@@ -24,51 +24,7 @@ int main()
 		std::cout << jan << std::endl;
 		Bureaucrat rau("rau", 150);
 		std::cout << rau << std::endl;
-
-		std::cout << "####################" << std::endl;
-		std::cout << "Creating forms" << std::endl;
-
-		Form a("a", 1, 1);
-		std::cout << a << std::endl;
-		Form b("b", 150 , 150);
-		std::cout << b << std::endl;
-
-		std::cout << "####################" << std::endl;
-		std::cout << "Creating illegal forms" << std::endl;
-
-		try
-		{
-			Form i("i", 0, 0);
-			std::cout << a << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		try
-		{
-			Form j("j", 151 , 151);
-			std::cout << b << std::endl;	
-		}
-		catch(const std::exception& e)
-		{	
-			std::cerr << e.what() << std::endl;
-		}
-
-		std::cout << std::endl << "####################" << std::endl;
-		std::cout << "Signing forms" << std::endl;
-
-		try
-		{
-			jan.signForm(a);
-			jan.signForm(b);
-			rau.signForm(a);
-			rau.signForm(b);
-		}
-		catch(const std::exception& e)
-		{	
-			std::cerr << e.what() << std::endl;
-		}
+		
 	}
 	catch(const std::exception& e)
 	{

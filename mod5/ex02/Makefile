@@ -6,7 +6,7 @@
 #    By: jberay <jberay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/07/04 09:14:38 by jberay           ###   ########.fr        #
+#    Updated: 2024/07/04 12:06:23 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
 SRCS 			=	Bureaucrat.cpp \
-					main.cpp
+					main.cpp \
+					AForm.cpp \
+					ShrubberyCreationForm.cpp
 						
 OBJS			=	$(SRCS:%.cpp=%.o)
 

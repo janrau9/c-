@@ -1,56 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 14:05:25 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 09:06:00 by jberay           ###   ########.fr       */
+/*   Created: 2024/07/02 11:37:31 by jberay            #+#    #+#             */
+/*   Updated: 2024/07/04 12:07:45 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include "Bureaucrat.hpp"
 
-class Form;
+class Bureaucrat;
 
-class Bureaucrat
+class AForm
 {
     private:
         const std::string name;
-        int grade;
+        bool isSigned;
+        const int gradeRequiredToSign;
+        const int gradeRequiredToExecute;
     public:
-        Bureaucrat();
-        Bureaucrat(std::string name, int grade);
-        ~Bureaucrat();
-        Bureaucrat(const Bureaucrat& other);
-        Bureaucrat& operator=(const Bureaucrat& other);
+        AForm();
+        AForm(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute);
+        virtual ~AForm();
+        AForm(const AForm& other);
+        AForm& operator=(const AForm& other);
 
         class GradeTooHighException : public std::exception
         {
             public:
                 virtual const char* what() const throw();
         };
-        class GradeTooLowLowException : public std::exception
+        class GradeTooLowException : public std::exception
         {
             public:
                 virtual const char* what() const throw();
         };
-        
+
         std::string getName() const;
         int getGrade() const;
-        void decrementGrade();
-        void incrementGrade();
-        
-        void signForm(Form &F) const;
+        bool getIsSigned() const;
+        int getGradeRequiredToSign() const;
+        int getGradeRequiredToExecute() const;
+
+        void beSigned(const Bureaucrat& B);
+        virtual void execute(Bureaucrat const & executor) const = 0;
         
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& B);
+std::ostream& operator<<(std::ostream& os, const AForm& F);
 
 #endif

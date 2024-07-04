@@ -6,18 +6,19 @@
 #    By: jberay <jberay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/07/02 11:16:18 by jberay           ###   ########.fr        #
+#    Updated: 2024/07/04 09:14:31 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	out
 
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
 SRCS 			=	Bureaucrat.cpp \
-					main.cpp
+					main.cpp \
+					Form.cpp
 						
 OBJS			=	$(SRCS:%.cpp=%.o)
 

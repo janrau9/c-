@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:05:25 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 09:06:00 by jberay           ###   ########.fr       */
+/*   Updated: 2024/07/04 12:06:40 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <iostream>
 # include <string>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -47,7 +47,7 @@ class Bureaucrat
         void decrementGrade();
         void incrementGrade();
         
-        void signForm(Form &F) const;
+        void signForm(AForm &F) const;
         
 };
 

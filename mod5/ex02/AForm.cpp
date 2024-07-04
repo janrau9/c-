@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:18:33 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 09:16:21 by jberay           ###   ########.fr       */
+/*   Updated: 2024/07/04 09:38:30 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : name("name"), isSigned(false), gradeRequiredToSign(150), gradeRequiredToExecute(150)
+AForm::AForm() : name("name"), isSigned(false), gradeRequiredToSign(150), gradeRequiredToExecute(150)
 {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Form::Form(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute)
+AForm::AForm(std::string name, int gradeRequiredToSign, int gradeRequiredToExecute)
     : name(name), isSigned(false), gradeRequiredToSign(gradeRequiredToSign), gradeRequiredToExecute(gradeRequiredToExecute)
 {
     std::cout << "Parametric constructor called" << std::endl;
     if (gradeRequiredToSign < 1 || gradeRequiredToExecute < 1)
-        throw Form::GradeTooHighException();
+        throw AForm::GradeTooHighException();
     else if (gradeRequiredToSign > 150 || gradeRequiredToExecute > 150)
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 }
 
-Form::~Form()
+AForm::~AForm()
 {
     std::cout << "Destructor called" << std::endl;
 }
 
-Form::Form(const Form& other)
+AForm::AForm(const AForm& other)
     : name(other.name), isSigned(other.isSigned), \
     gradeRequiredToSign(other.gradeRequiredToSign), gradeRequiredToExecute(other.gradeRequiredToExecute)
 {
     std::cout << "Copy constructor called" << std::endl;
 }
 
-Form& Form::operator=(const Form& other)
+AForm& AForm::operator=(const AForm& other)
 {
     if(this != &other)
     {
@@ -48,48 +48,48 @@ Form& Form::operator=(const Form& other)
     return (*this);
 }
 
-const char* Form::GradeTooHighException::what() const noexcept
+const char* AForm::GradeTooHighException::what() const noexcept
 {
     return ("Grade too high!");
 }
 
-const char* Form::GradeTooLowException::what() const noexcept
+const char* AForm::GradeTooLowException::what() const noexcept
 {
     return ("Grade too low!");
 }
 
-std::string Form::getName() const
+std::string AForm::getName() const
 {
     return (name);
 }
 
-bool Form::getIsSigned() const
+bool AForm::getIsSigned() const
 {
     return (isSigned);
 }
 
 
-int Form::getGradeRequiredToSign() const
+int AForm::getGradeRequiredToSign() const
 {
     return (gradeRequiredToSign);
 }
 
-int Form::getGradeRequiredToExecute() const
+int AForm::getGradeRequiredToExecute() const
 {
     return (gradeRequiredToExecute);
 }
 
-void Form::beSigned(const Bureaucrat& B)
+void AForm::beSigned(const Bureaucrat& B)
 {
     if (gradeRequiredToSign <= B.getGrade())
         isSigned = true;
     else
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& F)
+std::ostream& operator<<(std::ostream& os, const AForm& F)
 {
-    os << "Name: " << F.getName() << std::endl << "is Form signed: " << F.getIsSigned() << std::endl << \
+    os << "Name: " << F.getName() << std::endl << "is AForm signed: " << F.getIsSigned() << std::endl << \
     "Grade required to sign it: " << F.getGradeRequiredToSign() << std::endl << \
     "Grade required to execute it: " << F.getGradeRequiredToExecute() << std::endl;
     return os;

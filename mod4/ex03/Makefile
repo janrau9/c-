@@ -6,14 +6,14 @@
 #    By: jberay <jberay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/06/27 12:12:21 by jberay           ###   ########.fr        #
+#    Updated: 2024/07/04 09:14:47 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	materia
 
 CC				=	c++
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
 SRCS 			=	main.cpp \

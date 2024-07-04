@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 09:50:31 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 09:25:06 by jberay           ###   ########.fr       */
+/*   Updated: 2024/07/04 12:08:07 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void Bureaucrat::incrementGrade()
     grade--;
 }
 
-void Bureaucrat::signForm(Form &F) const
+void Bureaucrat::signForm(AForm &F) const
 {
     try
     {
