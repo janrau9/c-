@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:27:42 by jberay            #+#    #+#             */
-/*   Updated: 2024/08/12 12:01:41 by jberay           ###   ########.fr       */
+/*   Updated: 2024/08/12 12:19:59 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
-    : AForm(other)
+    : AForm(other), target(other.target)
 {
     std::cout << "copy constructor called" << std::endl;
 }
@@ -37,6 +37,8 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
     if (this != &other)
     {
+        target = other.target;
+        AForm::operator=(ShrubberyCreationForm);
         *this = other;
     }
     return (*this);

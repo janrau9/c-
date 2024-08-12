@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:18:33 by jberay            #+#    #+#             */
-/*   Updated: 2024/08/12 12:02:13 by jberay           ###   ########.fr       */
+/*   Updated: 2024/08/12 12:13:23 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ AForm::AForm(const AForm& other)
 
 AForm& AForm::operator=(const AForm& other)
 {
+     std::cout << "Assignation called" << std::endl;
     if(this != &other)
     {
         isSigned = other.isSigned;
