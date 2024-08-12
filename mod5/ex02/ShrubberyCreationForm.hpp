@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 09:39:57 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 10:39:58 by jberay           ###   ########.fr       */
+/*   Updated: 2024/08/12 10:52:42 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@
 class ShrubberyCreationForm : public AForm
 {
     private:
-        std::ofstream file;
+        std::string target;
     public:
         ShrubberyCreationForm();
+        ShrubberyCreationForm(std::string target);
         ~ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm& other);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other); 
@@ -33,6 +34,7 @@ class ShrubberyCreationForm : public AForm
         public:
             virtual const char* what() const throw();
     };
+    virtual void execute(Bureaucrat const & executor) const;
 };
 
 #endif

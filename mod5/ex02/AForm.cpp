@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:18:33 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 09:38:30 by jberay           ###   ########.fr       */
+/*   Updated: 2024/08/12 12:02:13 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,18 @@ int AForm::getGradeRequiredToExecute() const
 
 void AForm::beSigned(const Bureaucrat& B)
 {
-    if (gradeRequiredToSign <= B.getGrade())
+    if (B.getGrade() <= gradeRequiredToSign)
         isSigned = true;
     else
         throw AForm::GradeTooLowException();
+}
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+    if (!getIsSigned())
+        throw std::runtime_error("Form is not signed!");
+    if (executor.getGrade() > getGradeRequiredToExecute())
+        throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& F)

@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:05:25 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 12:06:40 by jberay           ###   ########.fr       */
+/*   Updated: 2024/08/12 11:32:50 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Bureaucrat
             public:
                 virtual const char* what() const throw();
         };
-        class GradeTooLowLowException : public std::exception
+        class GradeTooLowException : public std::exception
         {
             public:
                 virtual const char* what() const throw();
@@ -47,7 +47,8 @@ class Bureaucrat
         void decrementGrade();
         void incrementGrade();
         
-        void signForm(AForm &F) const;
+        void signForm(AForm &form) const;
+        void executeForm(AForm const & form) const;
         
 };
 
