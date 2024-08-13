@@ -6,7 +6,7 @@
 #    By: jberay <jberay@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 12:14:47 by jberay            #+#    #+#              #
-#    Updated: 2024/08/13 11:02:11 by jberay           ###   ########.fr        #
+#    Updated: 2024/08/13 12:05:01 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS 			=	Bureaucrat.cpp \
 					AForm.cpp \
 					ShrubberyCreationForm.cpp \
 					RobotomyRequestForm.cpp \
-					PresidentialPardonForm.cpp
+					PresidentialPardonForm.cpp \
+					Intern.cpp
 						
 OBJS			=	$(SRCS:%.cpp=%.o)
 
