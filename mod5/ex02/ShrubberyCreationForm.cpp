@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 10:27:42 by jberay            #+#    #+#             */
-/*   Updated: 2024/08/13 11:32:58 by jberay           ###   ########.fr       */
+/*   Updated: 2024/11/18 10:48:10 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     file <<"      |o|        | |         | |" << std::endl;
     file <<"      |.|        | |         | |" << std::endl;
     file <<"jan \\/ ._'/_/__/  ,'_//__\\/.  '_//__/_ " << std::endl;
-    
+    file.close();
 }

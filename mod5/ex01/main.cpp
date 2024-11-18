@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:55:55 by jberay            #+#    #+#             */
-/*   Updated: 2024/07/04 09:26:40 by jberay           ###   ########.fr       */
+/*   Updated: 2024/11/18 10:19:30 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int main()
 		std::cout << a << std::endl;
 		Form b("b", 150 , 150);
 		std::cout << b << std::endl;
+		Form c(a);
+		Form d = b;
 
 		std::cout << "####################" << std::endl;
 		std::cout << "Creating illegal forms" << std::endl;
@@ -62,8 +64,9 @@ int main()
 		{
 			jan.signForm(a);
 			jan.signForm(b);
-			rau.signForm(a);
-			rau.signForm(b);
+			rau.signForm(c);
+			rau.signForm(d);
+			jan.signForm(a);
 		}
 		catch(const std::exception& e)
 		{	

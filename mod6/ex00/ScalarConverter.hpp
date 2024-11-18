@@ -5,15 +5,12 @@
 #include <iomanip>
 #include <string>
 #include <cmath>
-
-#define CHAR_MIN -128
-#define CHAR_MAX 127
+#include <limits.h>
 
 enum class ScalarType { CHAR, INT, FLOAT, DOUBLE, INVALID };
 
 class ScalarConverter {
  private:
-  ScalarType _type;
   static char _char;
   static int _int;
   static float _float;

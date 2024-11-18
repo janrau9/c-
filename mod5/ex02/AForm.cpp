@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 12:18:33 by jberay            #+#    #+#             */
-/*   Updated: 2024/08/12 12:13:23 by jberay           ###   ########.fr       */
+/*   Updated: 2024/11/18 10:24:39 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,29 +32,29 @@ AForm::~AForm()
     std::cout << "Destructor called" << std::endl;
 }
 
-AForm::AForm(const AForm& other)
-    : name(other.name), isSigned(other.isSigned), \
-    gradeRequiredToSign(other.gradeRequiredToSign), gradeRequiredToExecute(other.gradeRequiredToExecute)
+AForm::AForm(const AForm &other)
+    : name(other.name), isSigned(other.isSigned),
+      gradeRequiredToSign(other.gradeRequiredToSign), gradeRequiredToExecute(other.gradeRequiredToExecute)
 {
     std::cout << "Copy constructor called" << std::endl;
 }
 
-AForm& AForm::operator=(const AForm& other)
+AForm &AForm::operator=(const AForm &other)
 {
-     std::cout << "Assignation called" << std::endl;
-    if(this != &other)
+    std::cout << "Assignation called" << std::endl;
+    if (this != &other)
     {
         isSigned = other.isSigned;
     }
     return (*this);
 }
 
-const char* AForm::GradeTooHighException::what() const noexcept
+const char *AForm::GradeTooHighException::what() const noexcept
 {
     return ("Grade too high!");
 }
 
-const char* AForm::GradeTooLowException::what() const noexcept
+const char *AForm::GradeTooLowException::what() const noexcept
 {
     return ("Grade too low!");
 }
@@ -69,7 +69,6 @@ bool AForm::getIsSigned() const
     return (isSigned);
 }
 
-
 int AForm::getGradeRequiredToSign() const
 {
     return (gradeRequiredToSign);
@@ -80,15 +79,17 @@ int AForm::getGradeRequiredToExecute() const
     return (gradeRequiredToExecute);
 }
 
-void AForm::beSigned(const Bureaucrat& B)
+void AForm::beSigned(const Bureaucrat &B)
 {
+    if (isSigned)
+        throw std::logic_error("Form already signed");
     if (B.getGrade() <= gradeRequiredToSign)
         isSigned = true;
     else
         throw AForm::GradeTooLowException();
 }
 
-void AForm::execute(Bureaucrat const & executor) const
+void AForm::execute(Bureaucrat const &executor) const
 {
     if (!getIsSigned())
         throw std::runtime_error("Form is not signed!");
@@ -96,10 +97,11 @@ void AForm::execute(Bureaucrat const & executor) const
         throw Bureaucrat::GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& os, const AForm& F)
+std::ostream &operator<<(std::ostream &os, const AForm &F)
 {
-    os << "Name: " << F.getName() << std::endl << "is AForm signed: " << F.getIsSigned() << std::endl << \
-    "Grade required to sign it: " << F.getGradeRequiredToSign() << std::endl << \
-    "Grade required to execute it: " << F.getGradeRequiredToExecute() << std::endl;
+    os << "Name: " << F.getName() << std::endl
+       << "is AForm signed: " << F.getIsSigned() << std::endl
+       << "Grade required to sign it: " << F.getGradeRequiredToSign() << std::endl
+       << "Grade required to execute it: " << F.getGradeRequiredToExecute() << std::endl;
     return os;
 }

@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 08:55:55 by jberay            #+#    #+#             */
-/*   Updated: 2024/08/13 11:38:37 by jberay           ###   ########.fr       */
+/*   Updated: 2024/11/18 10:38:08 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,39 +54,33 @@ int main()
 		try
 		{
 			std::cout << "####################" << std::endl;
-			std::cout << "Signing forms" << std::endl;
+			std::cout << std::endl << "##Signing forms original##" << std::endl ;
 			jan.signForm(Sform);
 			rau.signForm(Sform);
 			
-			std::cout << "####################" << std::endl << std::endl;
 			jan.signForm(Rform);
 			rau.signForm(Rform);
 
-			std::cout << "####################" << std::endl << std::endl;
 			jan.signForm(Pform);
 			rau.signForm(Pform);
 			
-			std::cout << "####################" << std::endl << std::endl;
-			jan.signForm(Scp);
+			std::cout << std::endl <<"##Signing forms copy##" << std::endl ;
 			rau.signForm(Scp);
+			jan.signForm(Scp);
 			
-			std::cout << "####################" << std::endl << std::endl;
-			jan.signForm(Rcp);
 			rau.signForm(Rcp);
+			jan.signForm(Rcp);
 
-			std::cout << "####################" << std::endl << std::endl;
-			jan.signForm(Pcp);
 			rau.signForm(Pcp);
+			jan.signForm(Pcp);
 
-			std::cout << "####################" << std::endl << std::endl;
+			std::cout << std::endl <<"##Signing forms assignation##"  << std::endl;
 			jan.signForm(Sassig);
 			rau.signForm(Sassig);
 
-			std::cout << "####################" << std::endl << std::endl;
 			jan.signForm(Rassig);
 			rau.signForm(Rassig);
 
-			std::cout << "####################" << std::endl << std::endl;
 			jan.signForm(Passig);
 			rau.signForm(Passig);
 		}
@@ -98,39 +92,33 @@ int main()
 		try
 		{
 			std::cout << "####################" << std::endl;
-			std::cout << "executing forms" << std::endl;
+			std::cout << std::endl << "##executing forms original##" << std::endl ;
 			jan.executeForm(Sform);
 			rau.executeForm(Sform);
 
-			std::cout << "####################" << std::endl << std::endl;
 			jan.executeForm(Rform);
 			rau.executeForm(Rform);
 
-			std::cout << "####################" << std::endl << std::endl;
 			jan.executeForm(Pform);
 			rau.executeForm(Pform);
 			
-			std::cout << "####################" << std::endl << std::endl;
+			std::cout << std::endl << "##executing forms copy##" << std::endl ;
 			jan.executeForm(Scp);
 			rau.executeForm(Scp);
 
-			std::cout << "####################" << std::endl << std::endl;
 			jan.executeForm(Rcp);
 			rau.executeForm(Rcp);
 
-			std::cout << "####################" << std::endl << std::endl;
 			jan.executeForm(Pcp);
 			rau.executeForm(Pcp);
 
-			std::cout << "####################" << std::endl << std::endl;
+			std::cout << std::endl << "##executing forms assignation##" << std::endl ;
 			jan.executeForm(Sassig);
 			rau.executeForm(Sassig);
 			
-			std::cout << "####################" << std::endl << std::endl;
 			jan.executeForm(Rassig);
 			rau.executeForm(Rassig);
 			
-			std::cout << "####################" << std::endl << std::endl;
 			jan.executeForm(Passig);
 			rau.executeForm(Passig);
 			
