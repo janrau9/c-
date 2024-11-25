@@ -39,9 +39,9 @@ void ScalarConverter::print()
     std::cout << _int << std::endl;
   }
 
-  std::cout << "float: " << std::fixed << std::setprecision(1) << _float << "f"
+  std::cout << "float: " << _float << "f"
             << std::endl;
-  std::cout << "double: " << std::fixed << std::setprecision(1) << _double
+  std::cout << "double: " << std::fixed << _double
             << std::endl;
 }
 
@@ -59,21 +59,33 @@ void ScalarConverter::convert(const std::string &str)
       break;
     case ScalarType::INT:
       _int = std::stoi(str);
-      _char = static_cast<char>(_int);
       _float = static_cast<float>(_int);
       _double = static_cast<double>(_int);
+      if (_int < CHAR_MIN || _int > CHAR_MAX)
+      {
+        throw std::out_of_range("Out of range");
+      }
+      _char = static_cast<char>(_int);
       break;
     case ScalarType::FLOAT:
       _float = std::stof(str);
-      _char = static_cast<char>(_float);
       _int = static_cast<int>(_float);
       _double = static_cast<double>(_float);
+            if (_float < CHAR_MIN || _float > CHAR_MAX)
+      {
+        throw std::out_of_range("Out of range");
+      }
+      _char = static_cast<char>(_float);
       break;
     case ScalarType::DOUBLE:
       _double = std::stod(str);
-      _char = static_cast<char>(_double);
       _int = static_cast<int>(_double);
       _float = static_cast<float>(_double);
+           if (_double < CHAR_MIN || _double > CHAR_MAX)
+      {
+        throw std::out_of_range("Out of range");
+      }
+      _char = static_cast<char>(_double);
       break;
     case ScalarType::INVALID:
       throw std::invalid_argument(
@@ -109,11 +121,11 @@ ScalarType ScalarConverter::getTypeFromStr(const std::string &str)
   {
     return ScalarType::INT;
   }
-  else if (isFloat(str) || str == "inff" || str == "-inff" || str == "nanf")
+  else if (isFloat(str) || str == "+inff" || str == "-inff" || str == "nanf")
   {
     return ScalarType::FLOAT;
   }
-  else if (isDouble(str) || str == "inf" || str == "-inf" || str == "nan")
+  else if (isDouble(str) || str == "+inf" || str == "-inf" || str == "nan")
   {
     return ScalarType::DOUBLE;
   }
