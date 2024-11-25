@@ -3,19 +3,31 @@
 
 #define MAX 100
 
-
-int main(void) {
+int main(void)
+{
 
     std::cout << "====CREATING INT ARRAY====" << std::endl;
     Array<int> intArray(MAX);
-    int* base = new int[MAX];
+    int *base = new int[MAX];
 
     std::cout << "====FILLING INT ARRAY====" << std::endl;
     srand(time(NULL));
-    for (int i = 0; i < MAX; i++) {
-        intArray[i] = rand() % 100;
-        base[i] = intArray[i];
+    for (int i = 0; i < MAX; i++)
+    {
+        const int value = rand() % 100;
+        intArray[i] = value;
+        base[i] = value;
     }
+    std::cout << "====Chech if the same====" << std::endl;
+    for (int i = 0; i < MAX; i++)
+    {
+        if (base[i] != intArray[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+
     std::cout << "====COPY and ASSIGN ARRAY====" << std::endl;
     Array<int> intArrayCopy(intArray);
     Array<int> intArrayAssign = intArrayCopy;
@@ -39,7 +51,7 @@ int main(void) {
     std::cout << "intArray[9] = " << intArray[9] << std::endl;
     std::cout << "intArrayCopy[9] = " << intArrayCopy[9] << std::endl;
     std::cout << "intArrayAssign[9] = " << intArrayAssign[9] << std::endl;
-    
+
     std::cout << "====DISPLAYING INT[9]++, ASSIGN====" << std::endl;
     intArrayAssign[9]++;
     std::cout << "base[9] = " << base[9] << std::endl;
@@ -48,25 +60,42 @@ int main(void) {
     std::cout << "intArrayAssign[9] = " << intArrayAssign[9] << std::endl;
 
     std::cout << "====OUT OF RANGE====" << std::endl;
-    try {
+    try
+    {
         intArray[MAX] = 42;
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cerr << e.what() << std::endl;
     }
-    try {
+    try
+    {
         intArrayCopy[-42] = 42;
-    } catch (std::exception &e) {
+    }
+    catch (std::exception &e)
+    {
         std::cerr << e.what() << std::endl;
     }
 
     std::cout << "====CREATING CHAR ARRAY====" << std::endl;
     Array<char> charArray(MAX);
-    char* baseChar = new char[MAX];
+    char *baseChar = new char[MAX];
 
     std::cout << "====FILLING CHAR ARRAY====" << std::endl;
-    for (int i = 0; i < MAX; i++) {
-        charArray[i] = rand() % 26 + 'a';
-        baseChar[i] = charArray[i];
+    for (int i = 0; i < MAX; i++)
+    {
+        const char value = rand() % 26 + 'a';
+        charArray[i] = value;
+        baseChar[i] = value;
+    }
+    std::cout << "====Chech if the same====" << std::endl;
+    for (int i = 0; i < MAX; i++)
+    {
+        if (baseChar[i] != charArray[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
     }
 
     std::cout << "====COPY and ASSIGN CHAR ARRAY====" << std::endl;
@@ -110,7 +139,8 @@ int main(void) {
     std::cout << "constArray size = " << constArray.size() << std::endl;
 
     std::cout << "====TRY TO ASSIGN VALUE====" << std::endl;
-    //constArray[9] = 42;
+    // constArray[9] = 42;
 
     delete[] base;
+    delete[] baseChar;
 }
