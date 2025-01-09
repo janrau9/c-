@@ -14,6 +14,8 @@ class BitcoinExchange {
     public:
         BitcoinExchange();
         ~BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange& other);
+        BitcoinExchange& operator=(const BitcoinExchange& other);
         void setExchangeRate(std::string data);
         void convertInput(char *input);
         float getExchangeRate(std::string date, float amount);

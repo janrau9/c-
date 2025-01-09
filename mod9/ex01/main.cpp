@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     try {
         int result = rpn.evalRPN(argv[1]);
         std::cout << result << std::endl;
-    } catch (std::invalid_argument &e) {
+    } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
         return 1;
     }

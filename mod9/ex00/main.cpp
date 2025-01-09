@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
     try {
         exchange.setExchangeRate("data.csv");
         exchange.convertInput(argv[1]);
-    } catch (std::invalid_argument &e) {
+    } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
         return 1;
     }

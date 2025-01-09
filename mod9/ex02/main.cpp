@@ -2,13 +2,16 @@
 
 #include "PmergeMe.hpp"
 
-int main(int argc, char **argv) {
-  if (argc < 2) {
+int main(int argc, char **argv)
+{
+  if (argc < 2)
+  {
     std::cerr << "usage: ./pmergeMe [sequence]" << std::endl;
     return 1;
   }
   PmergeMe pmergeMe;
-  try {
+  try
+  {
     std::vector<int> vec = pmergeMe.setVectorSequence(argc, argv);
     std::deque<int> deq = pmergeMe.setDequeSequence(argc, argv);
     pmergeMe.printSequence("Before:", vec);
@@ -27,14 +30,15 @@ int main(int argc, char **argv) {
         std::chrono::duration_cast<std::chrono::microseconds>(end - start)
             .count();
     pmergeMe.printSequence("After deque:", sortedDeq);
-    std::cout << "Time to process range of " << vec.size() << " elements with std::vector: " << durationVector
+    std::cout << "Time to process a range of " << vec.size() << " elements with std::vector: " << durationVector
               << " us" << std::endl;
-    std::cout << "Time to process range of " << deq.size() << " elements with std::deque: " << durationDeque
+    std::cout << "Time to process a range of " << deq.size() << " elements with std::deque: " << durationDeque
               << " us" << std::endl;
 
     return 0;
-
-  } catch (std::invalid_argument &e) {
+  }
+  catch (std::exception &e)
+  {
     std::cerr << e.what() << std::endl;
     return 1;
   }
